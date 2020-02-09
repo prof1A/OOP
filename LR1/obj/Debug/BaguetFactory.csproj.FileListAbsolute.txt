@@ -9,3 +9,4 @@ C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csprojAssemblyR
 C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\LR1.Properties.Resources.resources
 C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\Interop.WMPLib.dll
 C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csproj.ResolveComReference.cache
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csproj.CoreCompileInputs.cache

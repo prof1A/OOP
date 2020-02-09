@@ -68,6 +68,7 @@
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -201,6 +202,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.radioButton2);
             this.tabPage1.Controls.Add(this.radioButton1);
             this.tabPage1.Controls.Add(this.label3);
@@ -525,6 +527,16 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(185, 60);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 75);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "changes";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // BaguetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -596,5 +608,6 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button button8;
     }
 }
