@@ -64,6 +64,7 @@ namespace BaguetFactory
         public Polish()
         {
             Cost = 300;
+            //a
             NeededToCreate = 0.07;
         }
     }
