@@ -1,0 +1,11 @@
+C:\Users\CSharpSila\source\repos\OOP\LR1\bin\Debug\LR1.exe.config
+C:\Users\CSharpSila\source\repos\OOP\LR1\bin\Debug\LR1.exe
+C:\Users\CSharpSila\source\repos\OOP\LR1\bin\Debug\LR1.pdb
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.BaguetForm.resources
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csproj.GenerateResource.cache
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\LR1.exe
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\LR1.pdb
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csprojAssemblyReference.cache
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\LR1.Properties.Resources.resources
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\Interop.WMPLib.dll
+C:\Users\CSharpSila\source\repos\OOP\LR1\obj\Debug\BaguetFactory.csproj.ResolveComReference.cache
