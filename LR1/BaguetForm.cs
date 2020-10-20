@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml.Serialization;
-using System.Runtime.Serialization.Json;
-using System.Runtime.Serialization;
 using WMPLib;
 //using BaguetFactory;
 
@@ -40,14 +36,14 @@ namespace BaguetFactory
             textBox8.Enabled = false;
             trackBar1.Enabled = false;
         }
-        
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
             //Storage st = new Storage();
             if (radioButton1.Checked)
                 order = new Order(Storage.MaterialTakingFromDB);
-            else if(radioButton2.Checked)
+            else if (radioButton2.Checked)
                 order = new Order(Storage.MaterialTakingFromFile);
             list = new List<Type>();
             Type[] materials;
@@ -132,7 +128,7 @@ namespace BaguetFactory
         }
         private void CheckBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox5.Checked)
+            if (checkBox5.Checked)
             {
                 trackBar1.Enabled = true;
             }
@@ -162,7 +158,7 @@ namespace BaguetFactory
                 textBox4.Enabled = false;
         }
         private void Button4_Click_1(object sender, EventArgs e)
-        { 
+        {
 
             //Storage st = new Storage();
             if (checkBox6.Checked)
@@ -228,7 +224,7 @@ namespace BaguetFactory
             if (radioButton3.Checked)
             {
                 serialization = new XmlSerialization<Baguet>(xmlPath, bg);
-                if(serialization.Serialize())
+                if (serialization.Serialize())
                 {
                     textBox9.Text = "Object serialized";
                 }
@@ -236,11 +232,11 @@ namespace BaguetFactory
             else if (radioButton4.Checked)
             {
                 serialization = new JsonSerialization<Baguet>(jsonPath, bg);
-                if(serialization.Serialize())
+                if (serialization.Serialize())
                 {
                     textBox9.Text = "Object serialized";
                 }
-            }           
+            }
         }
         private void Button7_Click(object sender, EventArgs e)
         {
