@@ -1,5 +1,5 @@
-﻿using System;
-using BaguetFactory;
+﻿using BaguetFactory;
+using System;
 using System.Windows.Forms;
 
 class MainClass
@@ -8,7 +8,7 @@ class MainClass
     static void Main(string[] args)
     {
         Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);        
+        Application.SetCompatibleTextRenderingDefault(false);
         Application.Run(new BaguetForm());
     }
 }

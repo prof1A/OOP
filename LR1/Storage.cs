@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 
 namespace BaguetFactory
@@ -20,7 +20,7 @@ namespace BaguetFactory
             }
             using (StreamWriter sw = new StreamWriter(takenMaterialString, false, System.Text.Encoding.Default))
             {
-                sw.WriteLine(currentState+=Amount);
+                sw.WriteLine(currentState += Amount);
             }
 
         }
@@ -63,11 +63,10 @@ namespace BaguetFactory
                 else
                 {
                     throw new Exception("There is not enough material in Storage!");
-                    reader.Close();
-                    return false;
+                    
                 }
             }
-        }       
+        }
         public static bool MaterialTakingFromFile(Type material, double Amount)
         {
             bool b = false;
@@ -79,7 +78,7 @@ namespace BaguetFactory
             try
             {
                 matPath = @"D:\BaguetStorage\" + material.ToString().Substring(14) + "Storage.txt";
-                
+
                 using (StreamReader sr = new StreamReader(matPath, System.Text.Encoding.Default))
                 {
                     string line;

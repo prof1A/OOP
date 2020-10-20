@@ -1,51 +1,50 @@
-﻿using System;
-using System.IO;
-using System.Xml.Serialization;
+﻿using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Xml.Serialization;
 
 interface ISerializable<T>
 {
-    string path {get; set; }
+    string path { get; set; }
     T obj { get; set; }
     bool Serialize();
     T Deserialize();
-    
+
 }
-    public class XmlSerialization<T> : ISerializable<T>
+public class XmlSerialization<T> : ISerializable<T>
+{
+    public string path { get; set; }
+    public T obj { get; set; }
+    XmlSerializer formatter;
+    public XmlSerialization(string path, T obj)
     {
-        public string path { get; set; }
-        public T obj { get; set; }
-        XmlSerializer formatter;
-        public XmlSerialization(string path, T obj)
+        this.path = path;
+        this.obj = obj;
+
+        formatter = new XmlSerializer(typeof(T));
+
+    }
+
+
+    public bool Serialize()
+    {
+        using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
         {
-            this.path = path;
-            this.obj = obj;
+            formatter.Serialize(fs, obj);
 
-            formatter = new XmlSerializer(typeof(T));
-
+            return true;
         }
         
-
-        public bool Serialize()
+    }
+    public T Deserialize()
+    {
+        using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
         {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, obj);
+            T newObject = (T)formatter.Deserialize(fs);
 
-                return true;
-            }
-            return false;
+            //string str = String.Format("Object DEserialized: Width: {0}, Height: {1}, Cost: {2}", newBaguet.Width, newBaguet.Height, newBaguet.Cost);
+            return newObject;
         }
-        public T Deserialize()
-        {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
-            {
-                T newObject = (T)formatter.Deserialize(fs);
-
-                //string str = String.Format("Object DEserialized: Width: {0}, Height: {1}, Cost: {2}", newBaguet.Width, newBaguet.Height, newBaguet.Cost);
-                return newObject;
-            }
-        }
+    }
 }
 public class JsonSerialization<T> : ISerializable<T>
 {
@@ -66,7 +65,6 @@ public class JsonSerialization<T> : ISerializable<T>
             jsonFormatter.WriteObject(fs, obj);
             return true;
         }
-        return false;
     }
     public T Deserialize()
     {
@@ -75,5 +73,5 @@ public class JsonSerialization<T> : ISerializable<T>
             T newObject = (T)jsonFormatter.ReadObject(fs);
             return newObject;
         }
-    }   
+    }
 }
