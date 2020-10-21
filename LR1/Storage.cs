@@ -7,7 +7,7 @@ namespace BaguetFactory
 {
     static class Storage
     {
-        //string to connect to database
+
         public static readonly string connectionString = @"Data Source=DESKTOP-HNPN4VJ;Initial Catalog=BaguetStorage;Integrated Security=True";
 
         public static readonly string takenMaterialString = @"D:\BaguetStorage\TakenMaterial.txt";
@@ -35,7 +35,7 @@ namespace BaguetFactory
         {
             string _material = material.ToString();
             _material = _material.Substring(14);
-            //Console.WriteLine(_material);
+
             string sqlExpression = "SELECT Amount FROM StorageInventory WHERE Type = '" + _material + "'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -43,14 +43,13 @@ namespace BaguetFactory
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
-                //reciveing amount of material from datatbase
 
                 double MaterialAmount = 0;
                 while (reader.Read())
                 {
                     MaterialAmount = Convert.ToDouble(reader.GetValue(0));
                 }
-                //Console.WriteLine(MaterialAmount);
+
                 if (Amount < MaterialAmount)
                 {
                     sqlExpression = "UPDATE StorageInventory SET Amount = '" + (MaterialAmount - Amount)
@@ -63,18 +62,17 @@ namespace BaguetFactory
                 else
                 {
                     throw new Exception("There is not enough material in Storage!");
-                    
+
                 }
             }
         }
         public static bool MaterialTakingFromFile(Type material, double Amount)
         {
-            bool b = false;
+            bool b;
             string matPath;
             double amount;
             double _amount;
-            string finalString = "";
-
+            string finalString = " ";
             try
             {
                 matPath = @"D:\BaguetStorage\" + material.ToString().Substring(14) + "Storage.txt";
@@ -147,13 +145,13 @@ namespace BaguetFactory
         public static void changeInFile(Type material, double Amount)
         {
             Console.WriteLine(material.ToString().Substring(14));
-            double amount = 0;
-            string finalString = "";
-            string line = "";
+            double amount;
+            string finalString;
+            string line;
             using (StreamReader sr = new StreamReader(@"D:\BaguetStorage\" + material.ToString().Substring(14) + "Storage.txt"))
             {
                 line = sr.ReadLine();
-                amount = Double.Parse(line.Substring(26));
+                amount = double.Parse(line.Substring(26));
                 finalString = line.Substring(0, 26);
             }
             amount += Amount;
