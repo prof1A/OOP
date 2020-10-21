@@ -4,13 +4,13 @@ namespace BaguetFactory
 {
     class Order : ICloneable
     {
-        //final cost of baguet
+
         public double Cost = 0;
         public delegate bool deleg(Type material, double Amount);
         deleg del;
         public Order()
         {
-            //Storage st = new Storage();
+
             del = Storage.MaterialTakingFromDB;
         }
         public Order(deleg meth)
@@ -109,13 +109,12 @@ namespace BaguetFactory
             {
                 Width = Width,
                 Height = Height,
-                Cost = this.Cost
-                //materials = arr
+                Cost = Cost
             };
         }
         public object Clone()
         {
-            return new Order { Cost = this.Cost, del = this.del };
+            return new Order { Cost = Cost, del = del };
         }
     }
 }

@@ -14,7 +14,7 @@ public class XmlSerialization<T> : ISerializable<T>
 {
     public string path { get; set; }
     public T obj { get; set; }
-    XmlSerializer formatter;
+    readonly XmlSerializer formatter;
     public XmlSerialization(string path, T obj)
     {
         this.path = path;
@@ -33,7 +33,7 @@ public class XmlSerialization<T> : ISerializable<T>
 
             return true;
         }
-        
+
     }
     public T Deserialize()
     {
@@ -41,7 +41,7 @@ public class XmlSerialization<T> : ISerializable<T>
         {
             T newObject = (T)formatter.Deserialize(fs);
 
-            //string str = String.Format("Object DEserialized: Width: {0}, Height: {1}, Cost: {2}", newBaguet.Width, newBaguet.Height, newBaguet.Cost);
+
             return newObject;
         }
     }
@@ -50,7 +50,7 @@ public class JsonSerialization<T> : ISerializable<T>
 {
     public string path { get; set; }
     public T obj { get; set; }
-    DataContractJsonSerializer jsonFormatter;
+    readonly DataContractJsonSerializer jsonFormatter;
     public JsonSerialization(string path, T obj)
     {
         this.path = path;
